@@ -27,6 +27,22 @@ class Solution(object):
         return nums_last, nums_first, nums
 
 
-s = Solution()
+# s = Solution()
+# print(s.rotate(*case1))
+# print(s.rotate(*case2))
+
+# https://leetcode.com/problems/rotate-array/solutions/7184902/brute-force-to-optimised-approach-java-p-z4yy 
+
+
+class Solution2:
+    def rotate(self, nums, k):
+        n = len(nums)
+        k %= n
+        for _ in range(k):
+            last = nums.pop()
+            nums.insert(0, last)
+        return nums
+
+s = Solution2()
 print(s.rotate(*case1))
 print(s.rotate(*case2))
